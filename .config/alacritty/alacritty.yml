@@ -1,0 +1,35 @@
+import:
+  - ~/.config/alacritty/config.d/bell.yml
+  - ~/.config/alacritty/config.d/colors.yml
+  - ~/.config/alacritty/config.d/cursor.yml
+  - ~/.config/alacritty/config.d/font.yml
+  - ~/.config/alacritty/config.d/keys.yml
+  - ~/.config/alacritty/config.d/mouse.yml
+  - ~/.config/alacritty/config.d/window.yml
+
+env:
+  TERM: alacritty
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+live_config_reload: true
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: false
+
+hints:
+  enabled:
+  - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+            [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+    hyperlinks: true
+    command: xdg-open
+    post_processing: true
+    mouse:
+      enabled: true
+      mods: None
+    binding:
+      key: U
+      mods: Control|Shift

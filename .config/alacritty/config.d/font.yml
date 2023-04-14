@@ -1,0 +1,18 @@
+font:
+  normal:
+    family: Maple Mono SC NF
+    style: Regular
+
+  bold:
+    family: Maple Mono SC NF
+    style: Bold
+
+  italic:
+    family: Maple Mono SC NF
+    style: Regular Italic
+
+  bold_italic:
+    family: Maple Mono SC NF
+    style: Blod Italic
+
+  size: 14.0

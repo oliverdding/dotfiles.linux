@@ -1,0 +1,8 @@
+cursor:
+  style:
+    shape: Underline
+    blinking: Off
+
+  vi_mode_style: Block
+
+  unfocused_hollow: true
