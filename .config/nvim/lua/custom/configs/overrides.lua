@@ -79,6 +79,10 @@ M.mason = {
     "gopls",
     "delve",
     "gofumpt",
+    "goimports",
+    "goimports-reviser",
+    "gomodifytags",
+    "impl",
 
     -- rust
     "rust-analyzer",
