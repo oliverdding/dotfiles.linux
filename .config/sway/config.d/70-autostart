@@ -1,0 +1,11 @@
+# Notification
+exec mako
+
+# Clipboard manager
+exec wl-paste -t text --watch clipman store
+
+# Idle
+# TODO
+
+# Status bar
+bar swaybar_command waybar

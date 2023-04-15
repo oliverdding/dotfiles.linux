@@ -1,0 +1,6 @@
+set $term alacritty
+set $menu j4-dmenu-desktop --dmenu="bemenu -i" --no-generic --term=alacritty
+set $filemanager $term --class filemanager -e xplr
+set $browser firefox
+set $mail $term --class mail -e neomutt
+set $music $term --class music -e ncmpcpp

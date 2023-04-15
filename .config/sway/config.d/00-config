@@ -1,0 +1,18 @@
+# Mod Key 
+set $mod Mod4
+
+# Monitors
+output HDMI-A-2 res 3840x2160 scale 1.5
+
+focus_follows_mouse yes
+
+seat * {
+    hide_cursor when-typing enable
+}
+
+input "type:keyboard" {
+    xkb_options caps:escape
+}
+
+input * repeat_delay 300
+input * repeat_rate 50
