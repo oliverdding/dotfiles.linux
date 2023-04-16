@@ -8,7 +8,7 @@ exec 2> >(tee "stderr.log" >&2)
 
 echo -en "--- Clone the nvim config {\n"
 if [[ -f ~/.config/nvim/init.lua ]]; then
-    nvim +NvChadUpdate
+    echo -en "Pass\n"
 else
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 fi
