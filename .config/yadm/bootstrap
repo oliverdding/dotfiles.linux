@@ -16,7 +16,7 @@ echo -en "--- Done\n}\n"
 
 echo -en "--- Configure system {\n"
 mkdir -p $HOME/.config/fontconfig/conf.d
-ln -s /usr/share/fontconfig/conf.avail/50-user.conf $XDG_CONFIG_HOME/fontconfig/conf.d
+ln -s -f /usr/share/fontconfig/conf.avail/50-user.conf $XDG_CONFIG_HOME/fontconfig/conf.d
 echo -en "--- Done\n}\n"
 
 echo -en "--- Configure permissions {\n"
