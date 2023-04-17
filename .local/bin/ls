@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+command -v exa >/dev/null 2>&1 && {
+    exa "$@"
+} || {
+    /usr/bin/ls "$@"
+}
