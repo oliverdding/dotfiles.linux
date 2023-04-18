@@ -1,3 +1,4 @@
+@define-color dark #000000;
 @define-color grey1 #2e3440;
 @define-color grey2 #3b4252;
 @define-color grey3 #434c5e;
@@ -20,9 +21,9 @@ label:disabled { color: inherit; }
 button { all: unset; }
 
 #waybar {
-  font-family: "JetBrains Mono", "Font Awesome 6 Free";
+  font-family: "Maple Mono SC NF";
   font-size: 13px;
-  color: @grey3;
+  color: @dark;
 }
 
 window#waybar {
@@ -30,7 +31,7 @@ window#waybar {
 }
 
 tooltip {
-  font-family: "JetBrains Mono";
+  font-family: "Maple Mono SC NF";
   background-color: @grey4;
   border-radius: 15px;
   border-width: 2px;
@@ -51,30 +52,40 @@ tooltip {
   color: @white1;
 }
 
-#network,
-#battery,
+#cpu,
 #temperature,
-#clock,
-#custom-date,
-#pulseaudio,
-#workspaces
+#memory,
+#network,
+#bluetooth,
+#wireplumber,
+#window,
+#workspaces,
+#tray,
+#clock
 {
   margin: 5px 5px 0px 5px;
   border-radius: 60px;
   padding: 2px 8px;
 }
 
-#workspaces           { background-color: @grey2; }
-#clock                { background-color: @green; }
-#custom-date          { background-color: @yellow; }
-#network              { background-color: @blue4; }
-#temperature          { background-color: @blue1; }
-#temperature.critical { background-color: @red; }
-#pulseaudio           { background-color: @orange; }
-#pulseaudio.muted     { background-color: @red; }
-#battery              { background-color: @purple; }
-#battery.warning      { color: @yellow; }
-#battery.critical     {
+#cpu                  { background-color: @purple; }
+#cpu.warning          { color: @yellow; }
+#cpu.critical         {
   background-color: @red;
   color: @yellow;
 }
+#workspaces           { background-color: @grey2; }
+#clock                { background-color: @green; }
+#bluetooth            { background-color: @yellow; }
+#bluetooth.disabled   {
+  background-color: transparent;
+  margin: 0px;
+  border-radius: 0px;
+  padding: 0px 0px;
+}
+#network              { background-color: @blue4; }
+#temperature          { background-color: @blue1; }
+#memory               { background-color: @blue3; }
+#temperature.critical { background-color: @red; }
+#wireplumber          { background-color: @orange; }
+#wireplumber.muted    { background-color: @red; }

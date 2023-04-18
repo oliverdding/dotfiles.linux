@@ -5,11 +5,11 @@
 	"margin-right": 5,
   "margin-top": 5,
 	"spacing": 4,
-	"modules-left": ["custom/leftseparator", "sway/window", "custom/middleseparator"],
+	"modules-left": ["cpu", "temperature", "memory", "network", "bluetooth", "wireplumber", "sway/window"],
 	"modules-center": ["sway/workspaces"],
-	"modules-right": ["tray", "cpu", "temperature", "memory", "network", "bluetooth", "wireplumber", "clock", "custom/rightseparator"],
+	"modules-right": ["tray", "clock"],
 	"sway/window": {
-		"format": "{shell} {app_id}",
+		"format": "{app_id} - {title}",
 		"max-length": 50
 	},
   "sway/workspaces": {
@@ -99,7 +99,7 @@
     "format-icons": ["", "", ""],
     "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
 	"custom/rightseparator": {
 		"format": "|",
