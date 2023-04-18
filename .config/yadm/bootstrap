@@ -19,10 +19,3 @@ mkdir -p $HOME/.config/fontconfig/conf.d
 ln -s -f /usr/share/fontconfig/conf.avail/50-user.conf $XDG_CONFIG_HOME/fontconfig/conf.d
 echo -en "--- Done\n}\n"
 
-echo -en "--- Configure permissions {\n"
-for directory in ~/.ssh ~/.gnupg ~/.config/environment.d ~/.config/rclone ~/.config/yadm ~/.local/share/yadm;
-do
-    mkdir -p "$directory
-    chmod -R 700 "$directory"
-done
-echo -en "--- Done\n}\n"
