@@ -1,6 +1,6 @@
 cursor:
   style:
-    shape: Underline
+    shape: Block
     blinking: Off
 
   vi_mode_style: Block

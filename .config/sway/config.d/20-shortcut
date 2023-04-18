@@ -6,10 +6,10 @@ set $right l
 
 # Desktop Environment
 ## Window switcher
-bindsym mod1+tab exec ~/.local/bin/swindow.sh
+bindsym mod1+tab exec ~/.config/sway/bin/swindow.sh
 
 ## Dismiss Notification
-bindsym control+space exec makoctl dismiss
+bindsym $mod+escape exec makoctl dismiss
 
 ## Window management
 bindsym $mod+q kill
@@ -26,11 +26,10 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+f fullscreen
 
-bindsym $mod+shift+space floating toggle
+bindsym $mod+space floating toggle
 
-bindsym $mod+space focus mode_toggle
-
-bindsym $mod+a focus parent
+#bindsym $mod+space focus mode_toggle
+#bindsym $mod+a focus parent
 
 bindsym $mod+Up move up 1
 bindsym $mod+Left move left 1
@@ -67,31 +66,25 @@ bindsym $mod+alt+$right resize grow width 20px
 
 
 # Exit
-bindsym $mod+shift+q exec swaynag -t custom -m 'What action would you like to perform?' -b 'Shutdown' 'poweroff' -b 'Restart' 'poweroff --reboot'
-bindsym $mod+shift+p exec wlogout
+bindsym $mod+shift+q exec swaynag -e bottom -y top -t warning -m 'What action would you like to perform?' -b 'Shutdown' 'poweroff' -b 'Restart' 'poweroff --reboot'
 
 # Screenshot
-bindsym $mod+shift+s exec grim - | swappy -f -
-bindsym $mod+control+s exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+alt+s exec grim - | swappy -f -
+bindsym $mod+alt+shift+s exec grim -g "$(slurp)" - | swappy -f -
 
 ## Script
-bindsym $mod+shift+r reload
+bindsym $mod+alt+r reload
 
 ## Clipboard management
-bindsym $mod+p exec clipman pick -t bemenu --notify
+bindsym $mod+alt+p exec clipman pick -t bemenu --notify
 
 ## Bluetooth management
 # TODO
 
 ## Keyboard
-bindsym XF86AudioRaiseVolume exec swayosd --output-volume raise
-bindsym XF86AudioLowerVolume exec  swayosd --output-volume lower
-bindsym XF86AudioMute exec swayosd --output-volume mute-toggle
-bindsym XF86MonBrightnessUp exec swayosd --brightness raise
-bindsym XF86MonBrightnessDown exec swayosd --brightness lower
-bindsym XF86AudioNext        exec playerctl next
-bindsym XF86AudioPrev        exec playerctl previous
-bindsym XF86AudioPlay        exec playerctl play-pause
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 # Scratchpad
 bindsym $mod+Shift+Tab move scratchpad
@@ -100,6 +93,7 @@ bindsym $mod+Tab scratchpad show
 # Launch apps
 bindsym $mod+control+return exec $term --class alacritty
 bindsym $mod+control+space exec $menu | xargs swaymsg exec --
+bingsym $mod+control+f exec $filemanager
 bindsym $mod+control+w exec $browser
 bindsym $mod+control+n exec $music
 bindsym $mod+control+m exec $mail

@@ -14,7 +14,7 @@ titlebar_border_thickness 0
 
 smart_gaps off
 smart_borders on
-default_border          pixel 2
+default_border pixel 3
 
 gaps outer 5 
 gaps inner 10
@@ -27,5 +27,4 @@ exec_always {
     gsettings set org.gnome.desktop.interface icon-theme 'Tela-nord-dark'
     gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'
     gsettings set org.gnome.desktop.interface cursor-size '32'
-    gsettings set org.gnome.desktop.interface font-name 'Noto Sans Regular'
 }

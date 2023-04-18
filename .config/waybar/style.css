@@ -1,225 +1,80 @@
-@import "themes/mocha.css";
+@define-color grey1 #2e3440;
+@define-color grey2 #3b4252;
+@define-color grey3 #434c5e;
+@define-color grey4 #4c566a;
+@define-color white1 #d8dee9;
+@define-color white2 #e5e9f0;
+@define-color white3 #eceff4;
+@define-color blue1 #8fbcbb;
+@define-color blue2 #88c0d0;
+@define-color blue3 #81a1c1;
+@define-color blue4 #5e81ac;
+@define-color red #bf616a;
+@define-color orange #d08770;
+@define-color yellow #ebcb8b;
+@define-color green #a3be8c;
+@define-color purple #b48ead;
 
-* {
-	border: none;
-	border-radius: 6px;
-	/* `otf-font-awesome` is required to be installed for icons */
-	font-family: Symbols Nerd Font, SF Pro Display, Noto Sans CJK JP;
-	font-size: 14px;
-	font-weight: normal;
-}
+/* fix */
+label:disabled { color: inherit; }
+button { all: unset; }
 
-button.text-button {
-	min-height: 24px;
-	min-width: 16px;
+#waybar {
+  font-family: "JetBrains Mono", "Font Awesome 6 Free";
+  font-size: 13px;
+  color: @grey3;
 }
 
 window#waybar {
-	background: shade(alpha(@mantle, 0.9), 1.0);
-	border-bottom: shade(alpha(@base, 0.9), 1.0);
-	color: @text;
-	transition-property: background-color;
-	transition-duration: .5s;
-	border-radius: 15px;
-}
-
-window#waybar.hidden {
-	opacity: 0.2;
-}
-
-workspaces {
-	border-radius: 15px 6px 6px 15px;
+  background: transparent;
 }
 
 tooltip {
-	background: @base;
-	border: 2px solid @blue;
+  font-family: "JetBrains Mono";
+  background-color: @grey4;
+  border-radius: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @blue3;
 }
 
-tooltip label {
-	color: @subtext1;
+#workspaces {
+  font-size: 20px;
+  margin-top: 5px;
 }
 
+#workspaces button.focused { color: @blue2; }
+#workspaces button.urgent  { color: @red; }
+#workspaces button:hover   { color: @purple; }
 #workspaces button {
-	padding: 0 5px;
-	background-color: transparent;
-	color: @text;
-	/* Use box-shadow instead of border so the text isn't offset */
-	box-shadow: inset 0 -3px transparent;
-	/* Avoid rounded borders under each workspace name */
-	border: none;
-	border-radius: 1px;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-	background: rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 -3px @sky;
-	border-radius: 5px;
-	border: none;
-}
-
-#workspaces button.focused {
-	background-color: @surface2;
-	box-shadow: inset 0 -3px @blue;
-	border-radius: 5px;
-	border: none;
-}
-
-#workspaces button.urgent {
-	background-color: shade(alpha(@red, 0.7), 0.8);
-}
-
-#clock,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#gamemode {
-	padding: 0 10px;
-	color: #ffffff;
+  padding: 0px 5px;
+  color: @white1;
 }
 
 #network,
-#bluetooth,
+#battery,
+#temperature,
+#clock,
+#custom-date,
 #pulseaudio,
-#idle_inhibitor,
-#tray,
-#clock {
-	color: @white;
+#workspaces
+{
+  margin: 5px 5px 0px 5px;
+  border-radius: 60px;
+  padding: 2px 8px;
 }
 
-#window,
-#workspaces {
-	margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-	margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-	margin-right: 0;
-}
-
-@keyframes blink {
-	to {
-		background-color: #ffffff;
-		color: #000000;
-	}
-}
-
-label:focus {
-	background-color: #000000;
-}
-
-#cpu {
-	color: @teal;
-}
-
-#cpu.warning {
-	color: @peach;
-}
-
-#cpu.critical {
-	color: @red;
-}
-
-#memory {
-	color: @sapphire;
-}
-
-#memory.warning {
-	color: @peach;
-}
-
-#memory.critical {
-	color: @red;
-}
-
-#disk {
-	color: @mauve;
-}
-
-#disk.warning {
-	color: @peach;
-}
-
-#disk.critical {
-	color: @red;
-}
-
-#network {
-	margin: 0px 5px 0px 30px;
-}
-
-#bluetooth {
-	margin: 0px 5px 0px 0px;
-}
-
-#bluetooth.connected {
-	color: @blue;
-	margin: 0px 5px 0px 0px;
-}
-
-#bluetooth.off {
-	color: @red;
-	margin: 0px 5px 0px 0px;
-}
-
-#pulseaudio {
-	margin: 0px 5px 0px 0px;
-}
-
-#temperature {
-	color: @yellow;
-}
-
-#temperature.critical {
-	color: @red;
-}
-
-#tray > .passive {
-	-gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-	-gtk-icon-effect: highlight;
-	color: @maroon;
-}
-
-#idle_inhibitor {
-	margin: 0px 5px 0px 0px;
-}
-
-.custom-spotify {
-	padding: 0 10px;
-	color: @green;
-}
-
-#gamemode {
-	color: @flamingo;
-}
-
-#custom-rightseparator {
-	color: rgba(67, 255, 100, 0);
-	padding: 0 1px;
-	font-size: 1px;
-	margin: 0px 3px 0px 1px;
-}
-
-#custom-leftseparator {
-	color: rgba(67, 255, 100, 0);
-	padding: 0 1px;
-	font-size: 1px;
-	margin: 0px 1px 0px 3px;
-}
-
-#custom-middleseparator {
-	color: rgba(67, 255, 100, 0);
-	padding: 0 1px;
-	font-size: 1px;
-	margin: 0px 2px 0px 2px;
+#workspaces           { background-color: @grey2; }
+#clock                { background-color: @green; }
+#custom-date          { background-color: @yellow; }
+#network              { background-color: @blue4; }
+#temperature          { background-color: @blue1; }
+#temperature.critical { background-color: @red; }
+#pulseaudio           { background-color: @orange; }
+#pulseaudio.muted     { background-color: @red; }
+#battery              { background-color: @purple; }
+#battery.warning      { color: @yellow; }
+#battery.critical     {
+  background-color: @red;
+  color: @yellow;
 }

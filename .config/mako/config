@@ -1,14 +1,13 @@
 layer=top
 anchor=top-right
 font=Maple Mono SC NF
-background-color=#171b20
-text-color=#b6beca
+background-color=#3b4252
+text-color=#D8DEE9
 width=350
 margin=5,5,5
 padding=10
 border-size=2
-border-color=#262626
-progress-color=over #262626ff
+border-color=#88c0d0
 border-radius=5
 default-timeout=10000
 group-by=summary

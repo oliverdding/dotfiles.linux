@@ -1,41 +1,41 @@
 {
-	"layer": "bottom",
 	"position": "top",
 	"height": 35,
-	"margin-left": 2,
-	"margin-right": 2,
+	"margin-left": 5,
+	"margin-right": 5,
+  "margin-top": 5,
 	"spacing": 4,
-	"modules-left": ["custom/leftseparator", "sway/workspaces", "custom/middleseparator"],
-	"modules-center": ["sway/window"],
-	"modules-right": ["gamemode", "cpu", "temperature", "memory", "disk", "network", "bluetooth", "pulseaudio", "tray", "clock", "custom/rightseparator"],
+	"modules-left": ["custom/leftseparator", "sway/window", "custom/middleseparator"],
+	"modules-center": ["sway/workspaces"],
+	"modules-right": ["tray", "cpu", "temperature", "memory", "network", "bluetooth", "wireplumber", "clock", "custom/rightseparator"],
 	"sway/window": {
 		"format": "{shell} {app_id}",
 		"max-length": 50
 	},
+  "sway/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "format-icons": {
+      "default": "",
+    }
+  },
 	"tray": {
 		"spacing": 5
 	},
-	"gamemode": {
-		"format": "{glyph}",
-		"format-alt": "{glyph} {count}",
-		"glyph":  "",
-		"hide-not-running": true,
-		"use-icon": false,
-		"icon-name": "input-gaming-symbolic",
-		"icon-spacing": 2,
-		"icon-size": 14,
-		"tooltip": true,
-		"tooltip-format": "Games running: {count}"
-	},
 	"clock": {
-		"format": " {:%H:%M}",
+    "interval": "1",
+		"format": " {:%H:%M:%S}",
 		"format-alt": " {:%Y-%m-%d}",
-		"tooltip-format": "<span color='#74c7ec'><b><big>{:%Y %B}</big></b></span>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"calendar-weeks-pos": "left",
-		"today-format": "<span background='#cba6f7' color='#1e1e2e'><b>{}</b></span>",
-		"format-calendar": "<span color='#cdd6f4'><b>{}</b></span>",
-		"format-calendar-weeks": "<span color='#94e2d5'><b>{:%W} </b></span>",
-		"format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
 		"on-scroll": {
 			"calendar": 1
 		}
@@ -46,43 +46,24 @@
 			"warning": 80,
 			"critical": 90
 		},
-		"tooltip": true,
-		"on-click": "$TERM --class monitor -e btm --default_widget_type cpu",
-		"on-click-right": "killall btm"
+		"on-click-right": "alacritty --class monitor -e btm --default_widget_type cpu",
 	},
 	"memory": {
 		"format": " {percentage}%",
 		"states": {
-			"warning": 80,
+			"warning": 70,
 			"critical": 90
 		},
-		"tooltip": true,
 		"tooltip-format": "{used}GiB/{total}GiB",
-		"on-click": "$TERM --class monitor -e btm --default_widget_type memory",
-		"on-click-right": "killall btm"
+		"on-click-right": "alacritty --class monitor -e btm --default_widget_type memory",
 	},
 	"temperature": {
-		"hwmon-path-abs": "/sys/devices/platform/asus-ec-sensors/hwmon",
-		"input-filename": "temp2_input",
+		"hwmon-path": "/sys/class/hwmon/hwmon1/temp2_input",
 		"critical-threshold": 80,
 		"format-critical": "{icon} {temperatureC}°C",
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": ["", "", "", "", ""],
-		"tooltip": true,
-		"on-click": "$TERM --class monitor -e btm --default_widget_type temperature",
-		"on-click-right": "killall btm"
-	},
-	"disk": {
-		"format": " {percentage_used}%",
-		"states": {
-			"warning": 80,
-			"critical": 90
-		},
-		"path": "/home",
-		"tooltip": true,
-		"tooltip-format": "{path} {used}/{total}",
-		"on-click": "$TERM --class monitor -e btm --default_widget_type disk",
-		"on-click-right": "killall btm"
+		"on-click-right": "alacritty --class monitor -e btm --default_widget_type temperature",
 	},
 	"network": {
 		"interval": 5,
@@ -92,12 +73,13 @@
 		"format-linked": " No IP",
 		"format-disconnected": "",
 		"format-alt": " {bandwidthUpOctets}  {bandwidthDownOctets}",
-		"on-click": "$TERM --class monitor -e btm --default_widget_type network",
-		"on-click-right": "killall btm"
+		"on-click-right": "alacritty --class monitor -e btm --default_widget_type network",
 	},
 	"bluetooth": {
-		"format": "",
-		"format-connected-battery": " {icon}",
+		"format": " {status}",
+    "format-disabled": "",
+    "format-connected": " {num_connections}",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n{status}",
 		"tooltip-format-off": "{controller_alias}\t{controller_address}\n{status}",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} {status}\n{device_enumerate}",
@@ -106,29 +88,19 @@
 		"format-icons": {
 			"default": [ "", "", "", "", ""]
 		},
-		"on-click": "$TERM -e bluetoothctl",
+		"on-click": "alacritty -e bluetoothctl",
 		"on-click-right": "killall bluetoothctl",
 		"on-scroll-up": "bluetoothctl power on",
 		"on-scroll-down": "bluetoothctl power off"
 	},
-	"pulseaudio": {
-		"format": "{icon}",
-		"tooltip-format": "{icon} {volume}% {format_source}",
-		"format-bluetooth": " {icon}",
-		"format-bluetooth-muted": "",
-		"format-muted": "",
-		"format-source": " {volume}%",
-		"format-source-muted": "",
-		"ignored-sinks": ["Easy Effects Sink"],
-		"format-icons": {
-			"default": ["", "", ""]
-		},
-		"on-click": "$TERM -e pulsemixer",
-		"on-click-right": "killall pulsemixer",
-		"on-click-middle": "$HOME/.config/waybar/scripts/bar_volume.sh mute",
-		"on-scroll-up": "$HOME/.config/waybar/scripts/bar_volume.sh raise 1",
-		"on-scroll-down": "$HOME/.config/waybar/scripts/bar_volume.sh lower 1"
-	},
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": ["", "", ""],
+    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+  },
 	"custom/rightseparator": {
 		"format": "|",
 		"interval": "once",

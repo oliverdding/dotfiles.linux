@@ -9,8 +9,8 @@ M.ui = {
   tabufline = {
     lazyload = false,
   },
-  theme_toggle = { "everforest", "everforest_light" },
-  theme = "everforest",
+  theme_toggle = { "onedark", "one_light" },
+  theme = "onedark",
   nvdash = {
     load_on_startup = true,
   },
