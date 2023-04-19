@@ -12,7 +12,7 @@ bindsym mod1+tab exec ~/.config/sway/bin/swindow.sh
 bindsym $mod+alt+f exec swaync-client -t -sw
 
 ## Lock
-bindsym $mod+alt+l exec swaylock
+bindsym $mod+alt+q exec swaylock
 
 ## Window management
 bindsym $mod+q kill
