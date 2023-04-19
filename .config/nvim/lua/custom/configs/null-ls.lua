@@ -59,6 +59,10 @@ local sources = {
   -- json
   b.diagnostics.jsonlint,
   b.formatting.fixjson,
+
+  -- css
+  b.formatting.stylelint,
+  b.diagnostics.stylelint,
 }
 
 null_ls.setup {

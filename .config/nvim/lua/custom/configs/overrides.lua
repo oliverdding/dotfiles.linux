@@ -26,6 +26,7 @@ M.treesitter = {
     "sql",
     "rust",
     "toml",
+    "css",
   },
 }
 
@@ -110,6 +111,10 @@ M.mason = {
     "json-lsp",
     "jsonlint",
     "fixjson",
+
+    -- css
+    "css-lsp",
+    "stylelint",
   },
 }
 

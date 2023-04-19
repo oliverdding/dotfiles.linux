@@ -16,6 +16,7 @@ local servers = {
   "docker_compose_language_service",
   "yamlls",
   "jsonls",
+  "cssls",
 }
 
 for _, lsp in ipairs(servers) do

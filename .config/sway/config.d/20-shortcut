@@ -8,8 +8,8 @@ set $right l
 ## Window switcher
 bindsym mod1+tab exec ~/.config/sway/bin/swindow.sh
 
-## Dismiss Notification
-bindsym $mod+escape exec makoctl dismiss
+## Notification
+bindsym $mod+alt+f exec swaync-client -t -sw
 
 ## Window management
 bindsym $mod+q kill
@@ -76,7 +76,7 @@ bindsym $mod+alt+shift+s exec grim -g "$(slurp)" - | swappy -f -
 bindsym $mod+alt+r reload
 
 ## Clipboard management
-bindsym $mod+alt+p exec clipman pick -t bemenu --notify
+bindsym $mod+alt+p exec clipman pick -t wofi --notify
 
 ## Bluetooth management
 # TODO

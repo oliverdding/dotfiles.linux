@@ -1,91 +1,247 @@
-@define-color dark #000000;
-@define-color grey1 #2e3440;
-@define-color grey2 #3b4252;
-@define-color grey3 #434c5e;
-@define-color grey4 #4c566a;
-@define-color white1 #d8dee9;
-@define-color white2 #e5e9f0;
-@define-color white3 #eceff4;
-@define-color blue1 #8fbcbb;
-@define-color blue2 #88c0d0;
-@define-color blue3 #81a1c1;
-@define-color blue4 #5e81ac;
-@define-color red #bf616a;
-@define-color orange #d08770;
-@define-color yellow #ebcb8b;
-@define-color green #a3be8c;
-@define-color purple #b48ead;
+@keyframes blink-warning {
+    70% {
+        color: @light;
+    }
 
-/* fix */
-label:disabled { color: inherit; }
-button { all: unset; }
+    to {
+        color: @light;
+        background-color: @warning;
+    }
+}
 
+@keyframes blink-critical {
+    70% {
+      color: @light;
+    }
+
+    to {
+        color: @light;
+        background-color: @critical;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* COLORS */
+
+/* Nord */
+@define-color bg #2E3440;
+/*@define-color bg #353C4A;*/
+@define-color light #D8DEE9;
+/*@define-color dark @nord_dark_font;*/
+@define-color warning #ebcb8b;
+@define-color critical #BF616A;
+@define-color mode #434C5E;
+/*@define-color workspaces @bg;*/
+/*@define-color workspaces @nord_dark_font;*/
+/*@define-color workspacesfocused #434C5E;*/
+@define-color workspacesfocused #4C566A;
+@define-color tray @workspacesfocused;
+@define-color sound #EBCB8B;
+@define-color network #5D7096;
+@define-color memory #546484;
+@define-color cpu #596A8D;
+@define-color temp #4D5C78;
+@define-color layout #5e81ac;
+@define-color battery #88c0d0;
+@define-color date #434C5E;
+@define-color time #434C5E;
+@define-color backlight #434C5E;
+@define-color nord_bg #434C5E;
+@define-color nord_bg_blue #546484;
+@define-color nord_light #D8DEE9;
+@define-color nord_light_font #D8DEE9;
+@define-color nord_dark_font #434C5E;
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+
+/* The whole bar */
 #waybar {
-  font-family: "Maple Mono SC NF";
-  font-size: 13px;
-  color: @dark;
+    background: transparent;
+    color: @light;
+    font-family: "Cantarell", "Font Awesome 6 Free";
+    font-size: 12px;
+    font-weight: bold;
 }
 
-window#waybar {
-  background: transparent;
-}
-
-tooltip {
-  font-family: "Maple Mono SC NF";
-  background-color: @grey4;
-  border-radius: 15px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: @blue3;
-}
-
-#workspaces {
-  font-size: 20px;
-  margin-top: 5px;
-}
-
-#workspaces button.focused { color: @blue2; }
-#workspaces button.urgent  { color: @red; }
-#workspaces button:hover   { color: @purple; }
-#workspaces button {
-  padding: 0px 5px;
-  color: @white1;
-}
-
+/* Each module */
+#custom-launcher,
 #cpu,
 #temperature,
 #memory,
 #network,
-#bluetooth,
 #wireplumber,
-#window,
 #workspaces,
 #tray,
-#clock
-{
-  margin: 5px 5px 0px 5px;
-  border-radius: 60px;
-  padding: 2px 8px;
+#clock,
+#custom-notification {
+    padding-left: 0.6em;
+    padding-right: 0.6em;
 }
 
-#cpu                  { background-color: @purple; }
-#cpu.warning          { color: @yellow; }
-#cpu.critical         {
-  background-color: @red;
-  color: @yellow;
+/* Each module that should blink */
+#mode,
+#memory,
+#temperature,
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
-#workspaces           { background-color: @grey2; }
-#clock                { background-color: @green; }
-#bluetooth            { background-color: @yellow; }
-#bluetooth.disabled   {
-  background-color: transparent;
-  margin: 0px;
-  border-radius: 0px;
-  padding: 0px 0px;
+
+
+/* Each critical module */
+#cpu.critical,
+#memory.critical,
+#temperature.critical,
+#battery.critical {
+    color: @critical;
 }
-#network              { background-color: @blue4; }
-#temperature          { background-color: @blue1; }
-#memory               { background-color: @blue3; }
-#temperature.critical { background-color: @red; }
-#wireplumber          { background-color: @orange; }
-#wireplumber.muted    { background-color: @red; }
+
+/* Each critical that should blink */
+#mode,
+#memory.critical,
+#temperature.critical,
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning {
+    background: @warning;
+    color: @nord_dark_font;
+}
+
+/* Each warning that should blink */
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+/* And now modules themselves in their respective order */
+
+#mode { /* Shown current Sway mode (resize etc.) */
+    color: @light;
+    background: @mode;
+}
+
+/* Workspaces stuff */
+
+#workspaces {
+  color: #D8DEE9;
+}
+
+#workspaces button {
+    font-weight: bold; /* Somewhy the bar-wide setting is ignored */
+    padding: 0;
+    opacity: 0.3;
+    background: none;
+    font-size: 1em;
+}
+
+#workspaces button.focused {
+    background: @workspacesfocused;
+    color: #D8DEE9;
+    opacity: 1;
+    padding: 0 0.4em;
+}
+
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
+    opacity: 1;
+}
+
+#workspaces button:hover   { color: #b48ead; }
+
+#custom-scratchpad-indicator {
+    background: @nord_light;
+    color: @nord_dark_font;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+
+#custom-launcher {
+    background: @nord_bg_blue;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+
+#custom-notification {
+    background: @nord_bg_blue;
+}
+
+#idle_inhibitor {
+    background: @mode;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+
+#network {
+    background: @nord_bg_blue;
+}
+
+#memory {
+    background: @nord_bg;
+    color: #D8DEE9;
+}
+
+#cpu {
+    background: @nord_bg;
+    color: #D8DEE9;
+}
+#cpu.critical {
+    color: @nord_dark_font;
+}
+
+#temperature {
+    background-color: @nord_bg;
+    color: #D8DEE9;
+}
+#temperature.critical {
+    background:  @critical;
+}
+
+#battery {
+    background: @battery;
+}
+
+#clock {
+    background: @nord_bg_blue;
+    color: #D8DEE9;
+}
+#clock.date {
+    background: @date;
+}
+#clock.time {
+    background: @mode;
+}
+
+#tray {
+    background: transparent;
+}
+
+#wireplumber { /* Unsused but kept for those who needs it */
+    background: @nord_bg_blue;
+    color: #D8DEE9;
+}
+
+#wireplumber.muted {
+    background: @critical;
+}
+

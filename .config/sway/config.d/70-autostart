@@ -1,5 +1,5 @@
 # Notification
-exec mako
+exec swaync
 
 # Clipboard manager
 exec wl-paste -t text --watch clipman store

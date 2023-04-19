@@ -1,47 +1,50 @@
 {
+  // https://fontawesome.com
 	"position": "top",
-	"height": 35,
 	"margin-left": 5,
 	"margin-right": 5,
   "margin-top": 5,
-	"spacing": 4,
-	"modules-left": ["cpu", "temperature", "memory", "network", "bluetooth", "wireplumber", "sway/window"],
+	//"spacing": 4,
+	"modules-left": ["custom/launcher", "cpu", "temperature", "memory"],
 	"modules-center": ["sway/workspaces"],
-	"modules-right": ["tray", "clock"],
-	"sway/window": {
-		"format": "{app_id} - {title}",
-		"max-length": 50
-	},
-  "sway/workspaces": {
-    "all-outputs": true,
-    "format": "{icon}",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": []
+	"modules-right": ["tray", "idle_inhibitor", "custom/scratchpad-indicator", "network", "wireplumber", "clock", "custom/notification"],
+    "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "format": "{icon}",
+         "persistent_workspaces": {
+              "1": [],
+              "2": [],
+              "3": [],
+              "4": [],
+              "5": [],
+          },
+          "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+          }
     },
-    "format-icons": {
-      "default": "",
-    }
+  "custom/launcher": {
+      "format": "",
+      "on-click": "wofi"
   },
 	"tray": {
+    "icon-size": 15,
 		"spacing": 5
 	},
 	"clock": {
-    "interval": "1",
-		"format": " {:%H:%M:%S}",
+		"format": " {:%H:%M}",
 		"format-alt": " {:%Y-%m-%d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"calendar-weeks-pos": "left",
-		"on-scroll": {
-			"calendar": 1
-		}
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	},
 	"cpu": {
-		"format": " {usage}%",
+		"format": " {usage}%",
 		"states": {
 			"warning": 80,
 			"critical": 90
@@ -49,7 +52,7 @@
 		"on-click-right": "alacritty --class monitor -e btm --default_widget_type cpu",
 	},
 	"memory": {
-		"format": " {percentage}%",
+		"format": " {percentage}%",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -67,53 +70,57 @@
 	},
 	"network": {
 		"interval": 5,
-		"format-wifi": " {essid} {signalStrenght}%",
-		"format-ethernet": "",
-		"tooltip-format": "{ifname} {ipaddr}/{cidr} {gwaddr}",
-		"format-linked": " No IP",
+    "format": "{ifname}",
+		"format-wifi": " {essid} {signalStrength}%",
+		"format-ethernet": "",
+		"format-linked": " No IP",
 		"format-disconnected": "",
-		"format-alt": " {bandwidthUpOctets}  {bandwidthDownOctets}",
+		"tooltip-format": "{ifname} {ipaddr}/{cidr} {gwaddr}",
+		"format-alt": " {bandwidthUpOctets}  {bandwidthDownOctets}",
 		"on-click-right": "alacritty --class monitor -e btm --default_widget_type network",
-	},
-	"bluetooth": {
-		"format": " {status}",
-    "format-disabled": "",
-    "format-connected": " {num_connections}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}",
-		"tooltip-format": "{controller_alias}\t{controller_address}\n{status}",
-		"tooltip-format-off": "{controller_alias}\t{controller_address}\n{status}",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} {status}\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-		"format-icons": {
-			"default": [ "", "", "", "", ""]
-		},
-		"on-click": "alacritty -e bluetoothctl",
-		"on-click-right": "killall bluetoothctl",
-		"on-scroll-up": "bluetoothctl power on",
-		"on-scroll-down": "bluetoothctl power off"
 	},
   "wireplumber": {
     "format": "{volume}% {icon}",
-    "format-muted": "",
+    "format-muted": "",
     "format-icons": ["", "", ""],
     "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
-	"custom/rightseparator": {
-		"format": "|",
-		"interval": "once",
-		"tooltip": false
-	},
-	"custom/leftseparator": {
-		"format": "|",
-		"interval": "once",
-		"tooltip": false
-	},
-	"custom/middleseparator": {
-		"format": "|",
-		"interval": "once",
-		"tooltip": false
-	}
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+    "custom/scratchpad-indicator": {
+        "interval": 3,
+        "return-type": "json",
+        "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '( select(.name == \"root\") | .nodes[] | select(.name == \"__i3\") | .nodes[] | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class) (\\(.id)): \\(.name)\") | join(\"\\n\") }'",
+        "format": "{} ",
+        "on-click": "exec swaymsg 'scratchpad show'",
+        "on-click-right": "exec swaymsg 'move scratchpad'"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": "true"
+    },
 }
