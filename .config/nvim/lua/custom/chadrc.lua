@@ -9,7 +9,7 @@ M.ui = {
   telescope = { style = "bordered" },
   statusline = {
     theme = "minimal",
-    separator_style = "round",
+    separator_style = "block",
   },
   tabufline = {
     lazyload = false,

@@ -1,17 +1,12 @@
 {
+  "layer": "top",
 	"position": "top",
-	"margin-left": 10,
-	"margin-right": 10,
-  "margin-top": 10,
-	"spacing": 10,
 	"modules-left": ["wlr/workspaces"],
 	"modules-center": ["wlr/taskbar"],
 	"modules-right": ["tray", "cpu", "temperature", "memory", "network", "wireplumber", "clock"],
     "wlr/workspaces": {
-         "disable-scroll": true,
-         "all-outputs": true,
          "format": "{icon}",
-         "on-click": "activate", // https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#clicking-on-a-workspace-icon-does-not-work
+         "on-click": "activate",
          "persistent_workspaces": {
               "1": [],
               "2": [],
@@ -22,19 +17,18 @@
     },
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 15,
+    "icon-size": 16,
     "icon-theme": "Tela-nord-dark",
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "on-click-right": "minimize",
     "ignore-list": [
        "foot"
     ],
   },
 	"tray": {
-    "icon-size": 15,
-		"spacing": 5
+    "icon-size": 16,
+		"spacing": 5,
 	},
 	"cpu": {
 		"format": " {usage}%",
@@ -50,6 +44,7 @@
 		"format-critical": "{icon} {temperatureC}°C",
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": ["", "", "", "", ""],
+    "tooltip-format": "SSD at /sys/class/hwmon/hwmon1",
 		"on-click-right": "footclient -a btm -T btm btm --default_widget_type temperature",
 	},
 	"memory": {
@@ -76,9 +71,11 @@
     "format": "{volume}% {icon}",
     "format-muted": "",
     "format-icons": ["", "", ""],
-    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-click": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
   },
 	"clock": {
 		"format": " {:%H:%M}",
