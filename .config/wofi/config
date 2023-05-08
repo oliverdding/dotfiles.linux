@@ -1,5 +1,10 @@
-show=run
-width=500
-height=225
-prompt=search...
-content_halign=center
+show=drun
+height=600
+width=400
+prompt=App
+term=footclient
+image_size=32
+insensitive=true
+allow_images=true
+allow_markup=true
+no_actions=true

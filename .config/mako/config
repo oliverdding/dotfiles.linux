@@ -1,15 +1,17 @@
-layer=top
-anchor=top-right
 font=Maple Mono SC NF
-background-color=#3b4252
-text-color=#D8DEE9
-width=350
-margin=5,5,5
+background-color=#1d2021
+text-color=#ebdbb2
+
+margin=10,10,10
 padding=10
+
 border-size=2
-border-color=#88c0d0
+border-color=#83a598
 border-radius=5
+
 default-timeout=10000
+ignore-timeout=1
+
 group-by=summary
 
 [grouped]
@@ -17,3 +19,4 @@ format=<b>%s</b>\n%b
 
 [mode=do-not-disturb]
 invisible=1
+
