@@ -3,20 +3,11 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
-exec 1> >(tee "stdout.log")
-exec 2> >(tee "stderr.log" >&2)
+exec 1> >(tee "bootstrap.out.log")
+exec 2> >(tee "bootstrap.err.log" >&2)
 
-echo -en "--- Clone the nvim config {\n"
-if [[ -f ~/.config/nvim/init.lua ]]; then
-    echo -en "Pass\n"
-else
-    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-fi
-echo -en "--- Done\n}\n"
-
-echo -en "--- Configure system {\n"
 mkdir -p $HOME/.config/fontconfig/conf.d
 ln -s -f /usr/share/fontconfig/conf.avail/50-user.conf $XDG_CONFIG_HOME/fontconfig/conf.d
+
 mkdir -p $HOME/.local/state/bash
-echo -en "--- Done\n}\n"
 
