@@ -12,7 +12,6 @@
     "terminal.integrated.rightClickBehavior": "paste",
     "update.mode": "manual",
     "workbench.sideBar.location": "right",
-    "workbench.iconTheme": "material-icon-theme",
     "http.proxy": "http://127.0.0.1:7890",
     "clangd.detectExtensionConflicts": false,
     "clangd.arguments": [
@@ -35,5 +34,12 @@
     "extensions.ignoreRecommendations": true,
     "window.titleBarStyle": "custom",
     "window.dialogStyle": "custom",
-    "workbench.colorTheme": "Solarized Dark",
+    "window.autoDetectColorScheme": true,
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+    "gitlens.defaultDateLocale": "zh-CN",
+    "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm:ss",
+    "gitlens.defaultTimeFormat": "HH:mm",
+    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
 }
