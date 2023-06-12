@@ -5,13 +5,14 @@ M.mappings = require "custom.mappings"
 
 M.ui = {
   lsp_semantic_tokens = true,
-  telescope = { style = "bordered" },
-  statusline = {
-    theme = "minimal",
-    separator_style = "block",
+  cmp = {
+    style = "flat_dark",
   },
-  theme_toggle = { "everforest_dark" },
-  theme = "everforest_dark",
+  statusline = {
+    theme = "vscode_colored",
+  },
+  theme_toggle = { "everforest" },
+  theme = "everforest",
   nvdash = {
     load_on_startup = true,
   },

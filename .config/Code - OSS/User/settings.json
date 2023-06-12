@@ -35,11 +35,14 @@
     "window.titleBarStyle": "custom",
     "window.dialogStyle": "custom",
     "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Default Light Modern",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.productIconTheme": "material-product-icons",
+    "workbench.productIconTheme": "fluent-icons",
     "gitlens.defaultDateLocale": "zh-CN",
     "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm:ss",
     "gitlens.defaultTimeFormat": "HH:mm",
     "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+    "docker.containers.label": "ContainerName",
+    "docker.containers.description": [
+        "Status"
+    ],
 }
