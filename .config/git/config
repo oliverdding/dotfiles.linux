@@ -11,9 +11,3 @@
 	name = oliver ding
 	email = oliverdding@outlook.com
 	signingkey = 8DCF873C32DE2E45!
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
