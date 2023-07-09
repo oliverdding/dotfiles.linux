@@ -14,6 +14,10 @@ local plugins = {
     opts = overrides.mason,
   },
   {
+    "lewis6991/gitsigns.nvim",
+    opts = overrides.gitsigns,
+  },
+  {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
     dependencies = {

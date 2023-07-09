@@ -124,4 +124,8 @@ M.telescope = {
   extensions_list = { "themes", "terms", "undo", "dap" },
 }
 
+M.gitsigns = {
+  current_line_blame = true,
+}
+
 return M

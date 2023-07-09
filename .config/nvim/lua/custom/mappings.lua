@@ -8,13 +8,46 @@ M.general = {
 
 M.telescope = {
   n = {
-    ["<leader>u"] = { "<cmd>Telescope undo<cr>", "Undo list" },
-    ["<leader>bl"] = {
+    ["<leader>u"] = {
+      function()
+        require("telescope").extensions.undo.undo {}
+      end,
+      "Undo list",
+    },
+    ["<leader>dc"] = {
+      function()
+        require("telescope").extensions.dap.commands {}
+      end,
+      "Dap commands",
+    },
+    ["<leader>db"] = {
       function()
         require("telescope").extensions.dap.list_breakpoints {}
       end,
       "List breakpoints",
     },
+    ["<leader>dv"] = {
+      function()
+        require("telescope").extensions.dap.variables {}
+      end,
+      "List breakpoints",
+    },
+    ["<leader>df"] = {
+      function()
+        require("telescope").extensions.dap.frames {}
+      end,
+      "List breakpoints",
+    },
+    ["<leader>gC"] = { "<cmd> Telescope git_commits <CR>", "Git change commits" },
+    ["<leader>gB"] = { "<cmd> Telescope git_branches <CR>", "Git change branchs" },
+    ["<leader>lS"] = { "<cmd> Telescope lsp_document_symbols <CR>", "List symbols" },
+    ["<leader>ld"] = { "<cmd> Telescope diagnostics bufnr=0 <CR>", "File diagnostics" },
+    ["<leader>lD"] = { "<cmd> Telescope diagnostics <CR>", "Project diagnostics" },
+  },
+}
+
+M.diffview = {
+  n = {
     ["<leader>gb"] = {
       "<cmd>DiffviewFileHistory<cr>",
       "Git diffs branch",
@@ -55,95 +88,6 @@ M.dapui = {
   },
 }
 
-M.dap = {
-  n = {
-    ["<leader>bb"] = {
-      function()
-        require("dap").toggle_breakpoint()
-      end,
-      "Toggle breakpoint",
-    },
-    ["<leader>bc"] = {
-      function()
-        require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
-      end,
-      "Breakpoint condition",
-    },
-    ["<leader>bC"] = {
-      function()
-        require("dap").clear_breakpoints()
-      end,
-      "Clear breakpoint",
-    },
-    ["<leader>dc"] = {
-      function()
-        require("dap").continue()
-      end,
-      "Continue",
-    },
-    ["<leader>dr"] = {
-      function()
-        require("dap").restart()
-      end,
-      "Restart",
-    },
-    ["<leader>dl"] = {
-      function()
-        require("dap").run_last()
-      end,
-      "Run last",
-    },
-    ["<leader>ds"] = {
-      function()
-        require("dap").terminate()
-      end,
-      "Stop",
-    },
-    ["<leader>dC"] = {
-      function()
-        require("dap").run_to_cursor()
-      end,
-      "Run to cursor",
-    },
-    ["<leader>dI"] = {
-      function()
-        require("dap").step_into()
-      end,
-      "Step into",
-    },
-    ["<leader>do"] = {
-      function()
-        require("dap").step_over()
-      end,
-      "Step over",
-    },
-    ["<leader>dO"] = {
-      function()
-        require("dap").step_out()
-      end,
-      "Step out",
-    },
-    ["<leader>dk"] = {
-      function()
-        require("dap").up()
-      end,
-      "Up",
-    },
-    ["<leader>dj"] = {
-      function()
-        require("dap").down()
-      end,
-      "Down",
-    },
-    ["<leader>dp"] = {
-      function()
-        require("dap").pause()
-      end,
-      "Pause thread",
-    },
-  },
-}
-
 M.neotest = {
   plugin = true,
   n = {
@@ -153,13 +97,19 @@ M.neotest = {
       end,
       "Run nearest test",
     },
+    ["<leader>td"] = {
+      function()
+        require("neotest").run.run { strategy = "dap" }
+      end,
+      "Debug nearest test",
+    },
     ["<leader>tf"] = {
       function()
         require("neotest").run.run(vim.fn.expand "%")
       end,
       "Run current file",
     },
-    ["<leader>td"] = {
+    ["<leader>tD"] = {
       function()
         require("neotest").run.run(vim.fn.input "Directory: ")
       end,
@@ -177,18 +127,14 @@ M.neotest = {
       end,
       "Run attach",
     },
-    ["<leader>dt"] = {
-      function()
-        require("neotest").run.run { strategy = "dap" }
-      end,
-      "Debug nearest test",
-    },
   },
 }
 
 M.disabled = {
   n = {
     ["<leader>b"] = "",
+    ["<leader>th"] = "",
+    ["<leader>cm"] = "",
   },
 }
 
