@@ -6,6 +6,30 @@ M.general = {
   },
 }
 
+M.telescope = {
+  n = {
+    ["<leader>u"] = { "<cmd>Telescope undo<cr>", "Undo list" },
+    ["<leader>bl"] = {
+      function()
+        require("telescope").extensions.dap.list_breakpoints {}
+      end,
+      "List breakpoints",
+    },
+    ["<leader>gb"] = {
+      "<cmd>DiffviewFileHistory<cr>",
+      "Git diffs branch",
+    },
+    ["<leader>gf"] = {
+      "<cmd>DiffviewFileHistory %<cr>",
+      "Git diffs file",
+    },
+    ["<leader>gx"] = {
+      "<cmd>DiffviewClose<cr>",
+      "Git diffs close",
+    },
+  },
+}
+
 M.dapui = {
   n = {
     ["<leader>du"] = {

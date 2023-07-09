@@ -6,7 +6,6 @@ local lspconfig = require "lspconfig"
 local servers = {
   "lua_ls",
   "bashls",
-  "cmake",
   "gopls",
   "jdtls",
   "gradle_ls",
@@ -17,6 +16,8 @@ local servers = {
   "yamlls",
   "jsonls",
   "cssls",
+  "helm_ls",
+  "neocmake",
 }
 
 for _, lsp in ipairs(servers) do
@@ -47,4 +48,3 @@ lspconfig["clangd"].setup {
   },
   capabilities = capabilities,
 }
-

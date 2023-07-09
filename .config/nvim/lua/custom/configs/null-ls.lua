@@ -8,13 +8,16 @@ end
 local b = null_ls.builtins
 
 local sources = {
+  -- git
+  b.code_actions.gitsigns,
+
   -- sql
-  b.diagnostics.sqlfluff.with({
+  b.diagnostics.sqlfluff.with {
     extra_args = { "--dialect", "clickhouse" },
-  }),
-  b.formatting.sqlfluff.with({
+  },
+  b.formatting.sqlfluff.with {
     extra_args = { "--dialect", "clickhouse" },
-}),
+  },
 
   -- Lua
   b.diagnostics.luacheck,
@@ -27,6 +30,9 @@ local sources = {
   -- cpp
   b.diagnostics.cpplint,
   b.formatting.clang_format,
+
+  -- make
+  -- b.diagnostics.checkmake,
 
   -- cmake
   b.diagnostics.cmake_lint,

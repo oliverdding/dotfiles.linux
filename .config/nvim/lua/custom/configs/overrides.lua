@@ -73,8 +73,8 @@ M.mason = {
     "cpplint",
 
     -- cmake
-    "cmake-language-server",
     "cmakelang",
+    "neocmakelsp",
 
     -- go
     "gopls",
@@ -87,7 +87,6 @@ M.mason = {
 
     -- rust
     "rust-analyzer",
-    "rustfmt",
 
     -- python
     "pyright",
@@ -115,7 +114,14 @@ M.mason = {
     -- css
     "css-lsp",
     "stylelint",
+
+    -- helm
+    "helm-ls",
   },
+}
+
+M.telescope = {
+  extensions_list = { "themes", "terms", "undo", "dap" },
 }
 
 return M

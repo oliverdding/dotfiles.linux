@@ -88,6 +88,27 @@ local plugins = {
       }
     end,
   },
+  -- https://github.com/sindrets/diffview.nvim
+  {
+    "sindrets/diffview.nvim",
+    cmd = "DiffviewOpen",
+    config = true,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- https://github.com/debugloop/telescope-undo.nvim
+      "debugloop/telescope-undo.nvim",
+      -- https://github.com/nvim-telescope/telescope-dap.nvim
+      "nvim-telescope/telescope-dap.nvim",
+    },
+  },
+  {
+    "stevearc/dressing.nvim",
+    opts = {},
+  },
 }
 
 return plugins
