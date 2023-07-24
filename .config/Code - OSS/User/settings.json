@@ -45,4 +45,6 @@
     "docker.containers.description": [
         "Status"
     ],
+    "aws.telemetry": false,
+    "workbench.colorTheme": "Default Light Modern",
 }

@@ -1,0 +1,9 @@
+[[language]]
+name = "rust"
+formatter = { command = "rustfmt" }
+[language.config]
+checkOnSave = { command = "clippy" }
+
+[[language]]
+name = "go"
+config = { "formatting.gofumpt" = true }

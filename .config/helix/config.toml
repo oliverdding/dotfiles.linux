@@ -1,0 +1,47 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+cursorline = true
+true-color = true
+bufferline = "multiple"
+completion-trigger-len = 1
+color-modes = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+left = ["mode", "spacer", "file-name", "spacer", "spinner",]
+right = ["diagnostics", "spacer", "selections", "spacer", "position-percentage", "spacer", "file-type"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+"%" = "match_brackets"
+V = ["select_mode", "extend_to_line_bounds"]
+tab = "goto_next_buffer"
+S-tab = "goto_previous_buffer"
+C-u = ["half_page_up", "align_view_center"]
+C-d = ["half_page_down", "align_view_center"]
+
+[keys.normal.space]
+x = ":buffer-close"
+l = ":toggle lsp.display-inlay-hints"
+"=" = ":format"
