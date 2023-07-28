@@ -7,3 +7,18 @@ checkOnSave = { command = "clippy" }
 [[language]]
 name = "go"
 config = { "formatting.gofumpt" = true }
+
+[[language]]
+name = "typescript"
+formatter = { command = "prettier" }
+auto-format = true
+
+[[language]]
+name = "toml"
+formatter = { command = "prettier" }
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier" }
+auto-format = true
