@@ -51,5 +51,5 @@
     "editor.renderLineHighlight": "none",
     "workbench.tree.indent": 12,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Adwaita Light",
+    "workbench.colorTheme": "Adwaita Dark",
 }
