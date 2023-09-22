@@ -8,4 +8,3 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
 eval "$(starship init bash)"
-

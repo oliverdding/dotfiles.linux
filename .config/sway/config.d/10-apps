@@ -1,6 +1,0 @@
-set $term alacritty
-set $menu wofi
-set $filemanager $term --class filemanager -e vifm
-set $browser firefox
-set $mail $term --class mail -e neomutt
-set $music $term --class music -e ncmpcpp
