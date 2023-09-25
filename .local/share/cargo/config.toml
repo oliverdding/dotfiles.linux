@@ -7,3 +7,6 @@ replace-with = 'ustc'
 
 [source.ustc]
 registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
+
+[source.tuna]
+registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
