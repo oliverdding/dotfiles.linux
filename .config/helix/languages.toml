@@ -1,6 +1,5 @@
 [[language]]
 name = "rust"
-formatter = { command = "rustfmt" }
 
 [[language]]
 name = "go"
@@ -19,3 +18,6 @@ auto-format = true
 name = "yaml"
 formatter = { command = "prettier" }
 auto-format = true
+
+[language-server.gopls]
+config = { "formatting.gofumpt" = true, "go.inferGopath" = true, "go.inlayHints.assignVariableTypes" = true, "go.inlayHints.compositeLiteralFields" = true, "go.inlayHints.compositeLiteralTypes" = true, "go.inlayHints.constantValues" = true, "go.inlayHints.functionTypeParameters" = true, "go.inlayHints.parameterNames" = true, "go.inlayHints.rangeVariableTypes" = true, "go.lintTool" = "revive", "go.showWelcome" = false, "go.survey.prompt" = false, "go.toolsManagement.autoUpdate" = true }
