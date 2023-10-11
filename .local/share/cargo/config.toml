@@ -6,4 +6,4 @@ rustflags = ["-C", "link-arg=--ld-path=mold"]
 replace-with = 'tuna'
 
 [source.tuna]
-registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
