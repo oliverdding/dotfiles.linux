@@ -1,5 +1,4 @@
 {
-    "aws.telemetry": false,
     "clangd.arguments": [
         "--background-index",
         "--compile-commands-dir=build",
@@ -13,6 +12,7 @@
         "--pch-storage=memory",
     ],
     "clangd.detectExtensionConflicts": false,
+    "crates.indexServerURL": "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index",
     "docker.containers.description": [
         "Ports",
         "Status"
@@ -23,6 +23,13 @@
     "editor.inlayHints.fontFamily": "'FantasqueSansM Nerd Font Mono','LXGW WenKai Neo XiHei','Font Awesome 6 Free'",
     "editor.renderLineHighlight": "none",
     "editor.renderWhitespace": "all",
+    "evenBetterToml.formatter.alignComments": true,
+    "evenBetterToml.formatter.alignEntries": true,
+    "evenBetterToml.formatter.allowedBlankLines": 1,
+    "evenBetterToml.formatter.arrayAutoExpand": true,
+    "evenBetterToml.formatter.arrayTrailingComma": true,
+    "evenBetterToml.formatter.reorderArrays": false,
+    "evenBetterToml.formatter.trailingNewline": true,
     "extensions.ignoreRecommendations": true,
     "files.autoSave": "onWindowChange",
     "files.eol": "\n",
@@ -31,11 +38,14 @@
         "**/.bloop": true,
         "**/.metals": true
     },
-    "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm:ss",
-    "gitlens.defaultDateLocale": "zh-CN",
-    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
-    "gitlens.defaultTimeFormat": "HH:mm",
+    "git.enableCommitSigning": true,
+    "git.showPushSuccessNotification": true,
+    "git.terminalGitEditor": true,
+    "github.gitProtocol": "ssh",
     "go.diagnostic.vulncheck": "Imports",
+    "go.editorContextMenuCommands": {
+        "fillStruct": true
+    },
     "go.formatTool": "gofumpt",
     "go.inlayHints.assignVariableTypes": true,
     "go.inlayHints.compositeLiteralFields": true,
@@ -49,8 +59,11 @@
     "go.survey.prompt": false,
     "go.toolsManagement.autoUpdate": true,
     "http.proxy": "http://127.0.0.1:7890",
-    "markdown.marp.enableHtml": true,
-    "markdown.marp.pdf.outlines": "headings",
+    "lldb.showDisassembly": "never",
+    "rust-analyzer.lens.references.adt.enable": true,
+    "rust-analyzer.lens.references.enumVariant.enable": true,
+    "rust-analyzer.lens.references.method.enable": true,
+    "rust-analyzer.lens.references.trait.enable": true,
     "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontFamily": "'FantasqueSansM Nerd Font Mono','LXGW WenKai Neo XiHei','Font Awesome 6 Free'",
@@ -67,5 +80,5 @@
     "workbench.preferredLightColorTheme": "Adwaita Light",
     "workbench.productIconTheme": "adwaita",
     "workbench.sideBar.location": "right",
-    "workbench.tree.indent": 12,
+    "workbench.tree.indent": 12
 }
