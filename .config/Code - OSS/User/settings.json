@@ -12,6 +12,9 @@
         "--pch-storage=memory",
     ],
     "clangd.detectExtensionConflicts": false,
+    "codeium.enableConfig": {
+        "*": true
+    },
     "crates.indexServerURL": "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index",
     "docker.containers.description": [
         "Ports",
@@ -38,7 +41,6 @@
         "**/.bloop": true,
         "**/.metals": true
     },
-    "git.enableCommitSigning": true,
     "git.showPushSuccessNotification": true,
     "git.terminalGitEditor": true,
     "github.gitProtocol": "ssh",
@@ -58,7 +60,24 @@
     "go.showWelcome": false,
     "go.survey.prompt": false,
     "go.toolsManagement.autoUpdate": true,
-    "http.proxy": "http://127.0.0.1:7890",
+    "leetcode.defaultLanguage": "golang",
+    "leetcode.endpoint": "leetcode-cn",
+    "leetcode.filePath": {
+        "default": {
+            "filename": "${id}.${kebab-case-name}.${ext}",
+            "folder": ""
+        },
+        "golang": {
+            "filename": "${snake_case_name}.${ext}",
+            "folder": "${difficulty}/id${id}"
+        }
+    },
+    "leetcode.hint.commandShortcut": false,
+    "leetcode.hint.commentDescription": false,
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.hint.setDefaultLanguage": false,
+    "leetcode.useEndpointTranslation": false,
+    "leetcode.workspaceFolder": "/home/charmer/Developer/leetcode-go",
     "lldb.showDisassembly": "never",
     "rust-analyzer.lens.references.adt.enable": true,
     "rust-analyzer.lens.references.enumVariant.enable": true,

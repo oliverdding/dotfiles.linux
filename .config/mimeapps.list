@@ -36,10 +36,10 @@ image/x-qoi=org.gnome.Loupe.desktop
 image/avif=org.gnome.Loupe.desktop
 image/heic=org.gnome.Loupe.desktop
 image/jxl=org.gnome.Loupe.desktop
-x-scheme-handler/http=firefox.desktop
-text/html=firefox.desktop
+x-scheme-handler/http=google-chrome.desktop
+text/html=google-chrome.desktop
 application/xhtml+xml=firefox.desktop
-x-scheme-handler/https=firefox.desktop
+x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/mailto=org.gnome.Geary.desktop
 text/calendar=org.gnome.Calendar.desktop
 audio/x-vorbis+ogg=io.bassi.Amberol.desktop
@@ -159,6 +159,8 @@ video/x-theora+ogg=org.gnome.Totem.desktop
 video/x-totem-stream=org.gnome.Totem.desktop
 audio/x-m4b=io.bassi.Amberol.desktop
 audio/x-opus+ogg=io.bassi.Amberol.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
 
 [Added Associations]
 image/bmp=org.gnome.eog.desktop;
