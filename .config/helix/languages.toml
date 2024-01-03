@@ -24,3 +24,11 @@ auto-format = true
 name = "yaml"
 formatter = { command = "prettier" }
 auto-format = true
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.clangd]
+args = [ "-std=c++11", "-Wc++11-extensions" ]
+config = { "fallbackFlags" = [ "-std=c++11", "-Wc++11-extensions" ] }
