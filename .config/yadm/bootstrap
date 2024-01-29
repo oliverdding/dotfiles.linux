@@ -7,7 +7,7 @@ exec 1> >(tee "bootstrap.out.log")
 exec 2> >(tee "bootstrap.err.log" >&2)
 
 mkdir -p $HOME/.config/fontconfig/conf.d
-ln -s -f /usr/share/fontconfig/conf.avail/50-user.conf $XDG_CONFIG_HOME/fontconfig/conf.d
+ln -s -f /usr/share/fontconfig/conf.avail/50-user.conf $HOME/.config/fontconfig/conf.d
 
 mkdir -p $HOME/.local/state/bash
 
