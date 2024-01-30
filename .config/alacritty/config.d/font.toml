@@ -1,18 +1,18 @@
 [font]
 size = 14.0
 
+[font.normal]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Regular"
+
 [font.bold]
-family = "Maple Mono SC NF"
+family = "FantasqueSansM Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "Maple Mono SC NF"
+family = "FantasqueSansM Nerd Font Mono"
 style = "Blod Italic"
 
 [font.italic]
-family = "Maple Mono SC NF"
-style = "Regular Italic"
-
-[font.normal]
-family = "Maple Mono SC NF"
-style = "Regular"
+family = "FantasqueSansM Nerd Font Mono"
+style = "Italic"

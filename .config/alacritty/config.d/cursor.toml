@@ -1,7 +1,0 @@
-[cursor]
-unfocused_hollow = true
-vi_mode_style = "Block"
-
-[cursor.style]
-blinking = "Off"
-shape = "Block"
