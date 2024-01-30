@@ -1,23 +1,28 @@
+# Colors (Everforest Dark)
+
+# Default colors
 [colors.primary]
-background = '#f8f8f8'
-foreground = '#2a2b33'
+background = '#2d353b'
+foreground = '#d3c6aa'
 
+# Normal colors
 [colors.normal]
-black   = '#000000'
-red     = '#de3d35'
-green   = '#3e953a'
-yellow  = '#d2b67b'
-blue    = '#2f5af3'
-magenta = '#a00095'
-cyan    = '#3e953a'
-white   = '#bbbbbb'
+black   = '#475258'
+red     = '#e67e80'
+green   = '#a7c080'
+yellow  = '#dbbc7f'
+blue    = '#7fbbb3'
+magenta = '#d699b6'
+cyan    = '#83c092'
+white   = '#d3c6aa'
 
+# Bright colors
 [colors.bright]
-black   = '#000000'
-red     = '#de3d35'
-green   = '#3e953a'
-yellow  = '#d2b67b'
-blue    = '#2f5af3'
-magenta = '#a00095'
-cyan    = '#3e953a'
-white   = '#ffffff'
+black   = '#475258'
+red     = '#e67e80'
+green   = '#a7c080'
+yellow  = '#dbbc7f'
+blue    = '#7fbbb3'
+magenta = '#d699b6'
+cyan    = '#83c092'
+white   = '#d3c6aa'
