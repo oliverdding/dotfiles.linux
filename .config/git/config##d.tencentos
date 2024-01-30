@@ -8,8 +8,8 @@
 	gpgsign = false
 
 [user]
-	name = oliver ding
-	email = oliverdding@outlook.com
+	name = oliverdding
+	email = oliverdding@tencent.com
 
 [credential]
 	helper = store --file ~/.config/git/credential
