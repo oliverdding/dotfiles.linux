@@ -429,3 +429,8 @@ mods = "Control"
 action = "DecreaseFontSize"
 key = "NumpadSubtract"
 mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control"
