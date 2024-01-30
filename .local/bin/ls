@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-command -v exa >/dev/null 2>&1 && {
+command -v eza >/dev/null 2>&1 && {
     eza "$@"
 } || {
     /usr/bin/ls "$@"

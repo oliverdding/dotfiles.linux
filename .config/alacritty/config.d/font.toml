@@ -1,0 +1,18 @@
+[font]
+size = 14.0
+
+[font.bold]
+family = "Maple Mono SC NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "Maple Mono SC NF"
+style = "Blod Italic"
+
+[font.italic]
+family = "Maple Mono SC NF"
+style = "Regular Italic"
+
+[font.normal]
+family = "Maple Mono SC NF"
+style = "Regular"

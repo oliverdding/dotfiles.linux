@@ -1,5 +1,0 @@
-mouse:
-  hide_when_typing: false
-
-mouse_bindings:
-  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }

@@ -1,0 +1,15 @@
+[window]
+decorations = "full"
+decorations_theme_variant = "None"
+dynamic_padding = false
+dynamic_title = true
+opacity = 0.9
+title = "Alacritty"
+
+[window.class]
+general = "alacritty"
+instance = "alacritty"
+
+[window.padding]
+x = 10
+y = 10
