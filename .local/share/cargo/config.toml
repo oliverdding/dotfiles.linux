@@ -3,7 +3,7 @@ linker = "clang"
 rustflags = ["-C", "link-arg=--ld-path=mold"]
 
 [source.crates-io]
-replace-with = 'tuna'
+replace-with = 'mirror'
 
-[source.tuna]
-registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+[source.mirror]
+registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"

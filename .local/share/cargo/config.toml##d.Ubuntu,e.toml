@@ -1,8 +1,0 @@
-[target.x86_64-unknown-linux-gnu]
-linker = "clang"
-
-[source.crates-io]
-replace-with = 'tuna'
-
-[source.tuna]
-registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
