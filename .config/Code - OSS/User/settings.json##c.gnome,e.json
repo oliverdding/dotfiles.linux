@@ -9,7 +9,7 @@
         "--completion-style=detailed",
         "--function-arg-placeholders",
         "--header-insertion=iwyu",
-        "--pch-storage=memory",
+        "--pch-storage=memory"
     ],
     "clangd.detectExtensionConflicts": false,
     "codeium.enableConfig": {
@@ -21,7 +21,9 @@
         "Status"
     ],
     "docker.containers.label": "ContainerName",
+    "editor.folding": true,
     "editor.fontFamily": "'FantasqueSansM Nerd Font Mono','LXGW WenKai Neo XiHei','Font Awesome 6 Free'",
+    "editor.fontLigatures": true,
     "editor.fontSize": 16,
     "editor.inlayHints.fontFamily": "'FantasqueSansM Nerd Font Mono','LXGW WenKai Neo XiHei','Font Awesome 6 Free'",
     "editor.renderLineHighlight": "none",
@@ -84,6 +86,7 @@
     "rust-analyzer.lens.references.method.enable": true,
     "rust-analyzer.lens.references.trait.enable": true,
     "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
+    "search.useIgnoreFiles": true,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontFamily": "'FantasqueSansM Nerd Font Mono','LXGW WenKai Neo XiHei','Font Awesome 6 Free'",
     "terminal.integrated.fontSize": 14,
@@ -94,10 +97,12 @@
     "window.dialogStyle": "custom",
     "window.titleBarStyle": "custom",
     "workbench.colorTheme": "Adwaita Dark",
+    "workbench.editor.labelFormat": "short",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.preferredDarkColorTheme": "Adwaita Dark",
     "workbench.preferredLightColorTheme": "Adwaita Light",
     "workbench.productIconTheme": "adwaita",
     "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "none",
     "workbench.tree.indent": 12
 }
